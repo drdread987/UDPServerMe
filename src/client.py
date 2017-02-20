@@ -24,15 +24,17 @@ print("Received: {}".format(received))
 
 while received != "STOP":
 
+    received = " "
+
     try:
         # Connect to server and send data
-        sock.connect((HOST, PORT))
+
         sock.sendall(bytes(data + "\n", "utf-8"))
 
         # Receive data from the server and shut down
         received = str(sock.recv(1024), "utf-8")
     except:
-        pass
+        break
 
     print("Sent:     {}".format(data))
     print("Received: {}".format(received))

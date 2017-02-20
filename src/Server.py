@@ -1,6 +1,7 @@
 import socketserver
 counter = 0
 
+
 class MyTCPHandler(socketserver.BaseRequestHandler):
     """
     The RequestHandler class for our server.
@@ -12,11 +13,11 @@ class MyTCPHandler(socketserver.BaseRequestHandler):
 
     def handle(self):
         # self.request is the TCP socket connected to the client
+        print("Listening")
         global counter
         self.data = self.request.recv(1024).strip()
         print("{} wrote:".format(self.client_address[0]))
         print(self.data)
-        # just send back the same data, but upper-cased
         counter += 1
         if counter < 10:
             self.request.sendall(bytes("I heard you, you stupid client", 'UTF-8'))
