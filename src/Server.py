@@ -1,5 +1,5 @@
 import socketserver
-
+counter = 0
 
 class MyTCPHandler(socketserver.BaseRequestHandler):
     """
@@ -12,11 +12,16 @@ class MyTCPHandler(socketserver.BaseRequestHandler):
 
     def handle(self):
         # self.request is the TCP socket connected to the client
+        global counter
         self.data = self.request.recv(1024).strip()
         print("{} wrote:".format(self.client_address[0]))
         print(self.data)
         # just send back the same data, but upper-cased
-        self.request.sendall(bytes("I heard you, you stupid client", 'UTF-8'))
+        counter += 1
+        if counter < 10:
+            self.request.sendall(bytes("I heard you, you stupid client", 'UTF-8'))
+        else:
+            self.request.sendall(bytes("STOP", 'UTF-8'))
 
 if __name__ == "__main__":
     HOST, PORT = "103.200.110.142", 9999
