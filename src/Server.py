@@ -12,7 +12,7 @@ class MyUDPHandler(socketserver.BaseRequestHandler):
         socket.sendto(data.upper(), self.client_address)
 
 if __name__ == "__main__":
-    HOST, PORT = "103.200.110.142", 9999
+    HOST, PORT = "localhost", 9999
     server = socketserver.UDPServer((HOST, PORT), MyUDPHandler)
     print("Started Server")
     server.serve_forever()
