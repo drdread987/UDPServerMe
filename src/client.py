@@ -15,6 +15,8 @@ try:
 
     # Receive data from the server and shut down
     received = str(sock.recv(1024), "utf-8")
+    print("HELLO?")
+    print(received)
     sock.close()
 except:
     pass

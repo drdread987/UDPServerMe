@@ -3,7 +3,7 @@ import socketserver
 import datetime
 import time
 
-HOST, PORT = "localhost", 9999
+HOST, PORT = "103.200.110.142", 9999
 
 
 clients = []
