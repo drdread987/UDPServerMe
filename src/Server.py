@@ -6,7 +6,7 @@ import time
 HOST, PORT = "103.200.110.142", 9999
 
 
-clients = []
+clients = [["blah", datetime.datetime.now()]]
 
 
 class MyTCPHandler(socketserver.BaseRequestHandler):
@@ -49,7 +49,7 @@ def check_alive():
         counter = 0
         remList = []
         for client in clients:
-            if datetime.datetime.now() - client[1] > datetime.time(0, 0, 1):
+            if datetime.datetime.now() - client[1] > datetime.timedelta(0, 5):
                 remList.append(counter)
             counter += 1
         for x in remList:
