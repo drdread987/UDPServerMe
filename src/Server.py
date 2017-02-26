@@ -41,6 +41,8 @@ class MyTCPHandler(socketserver.BaseRequestHandler):
         if not found:
             print("Adding client")
             clients.append([client_ip, datetime.datetime.now()])
+            print("Just added the client at: ")
+            print(datetime.datetime.now())
 
 
 def check_alive():
