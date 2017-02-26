@@ -27,7 +27,21 @@ class MyTCPHandler(socketserver.BaseRequestHandler):
         if str(self.data, "utf-8") == "R" and not self.check_client(self.client_address[0]):
             self.register_client(self.client_address[0])
 
-        self.request.sendall(bytes("WHY!", 'UTF-8'))
+            self.request.sendall(bytes("Client Added", 'UTF-8'))
+        elif str(self.data, "utf-8") == "K" and self.check_client(self.client_address[0]):
+            self.request.sendall(bytes("Client Removed", 'UTF-8'))
+
+    def remove_client(self, client_ip):
+
+        global clients
+        remList = []
+        counter = 0
+        for client in clients:
+            if client[0] == client_ip:
+                remList.append(counter)
+                break
+            counter += 1
+        del clients[counter]
 
     def check_client(self, client_ip):
         global clients

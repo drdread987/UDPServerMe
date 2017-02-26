@@ -24,7 +24,7 @@ except:
 
 print("Sent:     {}".format(data))
 print("Received: {}".format(received))
-
+counter = 0
 while received != "STOP":
 
     received = " "
@@ -40,7 +40,9 @@ while received != "STOP":
         sock.close()
     except:
         break
-
+    counter += 1
+    if counter > 15:
+        data = "K"
     print("Sent:     {}".format(data))
     print("Received: {}".format(received))
 
