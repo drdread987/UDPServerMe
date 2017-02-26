@@ -6,7 +6,7 @@ import time
 HOST, PORT = "103.200.110.142", 9999
 
 
-clients = []
+clients = [["ip", datetime.datetime.now()]]
 
 
 class MyTCPHandler(socketserver.BaseRequestHandler):
@@ -39,6 +39,7 @@ class MyTCPHandler(socketserver.BaseRequestHandler):
                 found = True
                 break
         if not found:
+            print("Adding client")
             clients.append([client_ip, datetime.datetime.now()])
 
 
@@ -53,6 +54,7 @@ def check_alive():
                 remList.append(counter)
             counter += 1
         for x in remList:
+            print("removing a client")
             del clients[x]
         time.sleep(10)
 
