@@ -50,6 +50,7 @@ def check_alive():
         counter = 0
         remList = []
         for client in clients:
+            print(client[1])
             if datetime.datetime.now() - client[1] > datetime.timedelta(0, 5):
                 remList.append(counter)
             counter += 1
