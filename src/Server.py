@@ -30,6 +30,7 @@ class MyTCPHandler(socketserver.BaseRequestHandler):
             self.request.sendall(bytes("Client Added", 'UTF-8'))
         elif str(self.data, "utf-8") == "K" and self.check_client(self.client_address[0]):
             self.request.sendall(bytes("STOP", 'UTF-8'))
+            self.remove_client(self.client_address[0])
 
     def remove_client(self, client_ip):
 
