@@ -3,7 +3,7 @@ import sys
 
 
 HOST, PORT = "103.200.110.142", 9999
-data = "Hello! "
+data = "R"
 
 # Create a socket (SOCK_STREAM means a TCP socket)
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)

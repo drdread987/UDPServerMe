@@ -23,7 +23,6 @@ class MyTCPHandler(socketserver.BaseRequestHandler):
         print("Listening")
         self.data = self.request.recv(1024).strip()
         print("{} wrote:".format(self.client_address[0]))
-        clients.append(self.client_address[0])
         print(self.data)
         if str(self.data, "utf-8") == "R":
             self.register_client(self.client_address[0])
