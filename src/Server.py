@@ -6,7 +6,7 @@ import time
 HOST, PORT = "103.200.110.142", 9999
 
 
-clients = [["ip", datetime.datetime.now()]]
+clients = []
 
 
 class MyTCPHandler(socketserver.BaseRequestHandler):
