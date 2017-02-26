@@ -28,7 +28,7 @@ class MyTCPHandler(socketserver.BaseRequestHandler):
         if str(self.data, "utf-8") == "R":
             self.register_client(self.client_address[0])
 
-        self.request.sendall(bytes("I heard you, you stupid client", 'UTF-8'))
+        self.request.sendall(bytes("STOP", 'UTF-8'))
 
     def register_client(self, client_ip):
 
