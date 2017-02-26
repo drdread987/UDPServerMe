@@ -24,10 +24,18 @@ class MyTCPHandler(socketserver.BaseRequestHandler):
         self.data = self.request.recv(1024).strip()
         print("{} wrote:".format(self.client_address[0]))
         print(self.data)
-        if str(self.data, "utf-8") == "R":
+        if str(self.data, "utf-8") == "R" and not self.check_client(self.client_address[0]):
             self.register_client(self.client_address[0])
 
-        self.request.sendall(bytes("STOP", 'UTF-8'))
+        self.request.sendall(bytes("WHY!", 'UTF-8'))
+
+    def check_client(self, client_ip):
+        global clients
+
+        for client in clients:
+            if client[0] == client_ip:
+                return True
+        return False
 
     def register_client(self, client_ip):
 
