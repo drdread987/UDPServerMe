@@ -1,5 +1,7 @@
 import socket
 import sys
+import datetime
+import time
 
 
 HOST, PORT = "103.200.110.142", 9999
@@ -25,6 +27,7 @@ except:
 print("Sent:     {}".format(data))
 print("Received: {}".format(received))
 counter = 0
+start_time = datetime.datetime.now()
 while received != "STOP":
 
     received = " "
@@ -41,10 +44,13 @@ while received != "STOP":
     except:
         break
     counter += 1
-    if counter > 15:
+    current_time = datetime.datetime.now()
+    if current_time - start_time > datetime.timedelta(0, 60):
         data = "K"
-    print("Sent:     {}".format(data))
-    print("Received: {}".format(received))
+    # print("Sent:     {}".format(data))
+    # print("Received: {}".format(received))
+
+print(counter)
 
 
 

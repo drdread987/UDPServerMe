@@ -20,9 +20,9 @@ class MyTCPHandler(socketserver.BaseRequestHandler):
     def handle(self):
         global clients
         # self.request is the TCP socket connected to the client
-        print("Listening")
+        # print("Listening")
         self.data = self.request.recv(1024).strip()
-        print("{} wrote:".format(self.client_address[0]))
+        # print("{} wrote:".format(self.client_address[0]))
         print(self.data)
         if str(self.data, "utf-8") == "R" and not self.check_client(self.client_address[0]):
             self.register_client(self.client_address[0])
