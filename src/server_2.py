@@ -10,12 +10,12 @@ s.bind((TCP_IP, TCP_PORT))
 s.listen(5)
 
 conn, addr = s.accept()
-print("Connection Address: " + addr)
+print("Connection Address: ", addr)
 while 1:
     data = conn.recv(BUFFER_SIZE)
     if not data:
         break
-    print("Received data: " + data)
+    print("Received data: ", data)
     conn.send("I SEE YOU ARE ALSO A BOT")
 conn.close()
 
