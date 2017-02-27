@@ -16,6 +16,6 @@ while 1:
     if not data:
         break
     print("Received data: ", data)
-    conn.send("I SEE YOU ARE ALSO A BOT")
+    conn.send(bytes("I SEE YOU ARE ALSO A BOT", "utf-8"))
 conn.close()
 
