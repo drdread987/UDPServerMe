@@ -17,11 +17,11 @@ s.bind((UDP_IP, UDP_PORT))
 
 while 1:
     data, addr = s.recvfrom(1024)
-    print(addr)
+    target_ip = addr[0]
     if not data:
         break
     else:
-        sock.sendto(MESSAGE, (addr, target_port))
+        sock.sendto(MESSAGE, (target_ip, target_port))
     print(data)
 
 
