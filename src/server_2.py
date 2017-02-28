@@ -11,6 +11,7 @@ target_ip = None
 target_port = 9999
 
 s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 s.bind((UDP_IP, UDP_PORT))
 
 
@@ -19,7 +20,7 @@ while 1:
     if not data:
         break
     else:
-        s.sendto(MESSAGE, (addr, target_port))
+        sock.sendto(MESSAGE, (addr, target_port))
     print(data)
 
 
