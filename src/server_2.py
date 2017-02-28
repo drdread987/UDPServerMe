@@ -13,6 +13,6 @@ while 1:
     data, addr = s.accept()
     if not data:
         break
-    print(bytes(data, "utf-8"))
+    print(data)
 
 
