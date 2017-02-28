@@ -7,7 +7,7 @@ BUFFER_SIZE = 1024
 
 MESSAGE = bytes("STOP", "utf-8")
 
-target_ip = None
+target_ip = "25.16.137.215"
 target_port = 9999
 
 s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -17,7 +17,7 @@ s.bind((UDP_IP, UDP_PORT))
 
 while 1:
     data, addr = s.recvfrom(1024)
-    target_ip = addr[0]
+    # target_ip = addr[0]
     if not data:
         break
     else:
