@@ -20,10 +20,12 @@ while 1:
     sock.bind((self_UDP_IP, self_UDP_PORT))
     data, addr = sock.recvfrom(1024)
     if data == "STOP":
+        print(data)
         break
     else:
         print(data)
 s.close()
+sock.close()
 
 
 
