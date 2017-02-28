@@ -5,7 +5,7 @@ UDP_IP = "103.200.110.142"
 UDP_PORT = 9999
 BUFFER_SIZE = 1024
 
-s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 s.bind((UDP_IP, UDP_PORT))
 
 
