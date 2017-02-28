@@ -17,7 +17,7 @@ while 1:
     if not data:
         break
     else:
-        s.sendto("STOP", (addr, target_port))
+        s.sendto(bytes("STOP", "utf-8"), (addr, target_port))
     print(data)
 
 
