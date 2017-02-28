@@ -10,7 +10,7 @@ s.bind((UDP_IP, UDP_PORT))
 
 
 while 1:
-    data, addr = s.accept()
+    data, addr = s.recvfrom(1024)
     if not data:
         break
     print(data)
