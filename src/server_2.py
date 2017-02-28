@@ -5,6 +5,8 @@ UDP_IP = "103.200.110.142"
 UDP_PORT = 9999
 BUFFER_SIZE = 1024
 
+MESSAGE = bytes("STOP", "utf-8")
+
 target_ip = None
 target_port = 9999
 
@@ -17,7 +19,7 @@ while 1:
     if not data:
         break
     else:
-        s.sendto(bytes("STOP", "utf-8"), (addr, target_port))
+        s.sendto(MESSAGE, (addr, target_port))
     print(data)
 
 
