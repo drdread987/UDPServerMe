@@ -21,7 +21,7 @@ while 1:
     if not data:
         break
     else:
-        print("sending data")
+        print("sending data to : " + target_ip)
         sock.sendto(MESSAGE, (target_ip, target_port))
     print(data)
 
